@@ -17,7 +17,7 @@ def getNow():
     return round,seasonId
 
 def getRoundNow():
-    round,seasonID = getNow()
+    round,seasonId = getNow()
     return round
 
 def getSeasonIdNow():
@@ -25,6 +25,8 @@ def getSeasonIdNow():
     return seasonId
 
 def getMatch(round=getRoundNow(), seasonId=getSeasonIdNow()):
+    select_data = list()
+    result_data = list()
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
     }
@@ -32,8 +34,6 @@ def getMatch(round=getRoundNow(), seasonId=getSeasonIdNow()):
     web_data = requests.get(url, headers=header)
     web_data.encoding = 'utf-8'
     datas = json.loads(web_data.text[22:-1])
-    select_data = list()
-    result_data = list()
     try:
         select_data += datas['data']['cbaMatch']
     except:
@@ -49,4 +49,3 @@ def getMatch(round=getRoundNow(), seasonId=getSeasonIdNow()):
         quartertime = one['quarterTime']
         result_data.append([awayName , awayGoal , homeName, homeGoal, period ,quarter, quartertime, startTime])
     return result_data
-    

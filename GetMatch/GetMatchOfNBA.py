@@ -4,6 +4,8 @@ import datetime
 import json
  
 def getMatch(startDay=datetime.datetime.now().strftime("%Y-%m-%d"),endDay=datetime.datetime.now().strftime("%Y-%m-%d")):
+    select_data = list()
+    result_data = list()
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
     }
@@ -11,8 +13,6 @@ def getMatch(startDay=datetime.datetime.now().strftime("%Y-%m-%d"),endDay=dateti
     web_data = requests.get(url, headers=header)
     web_data.encoding = 'utf-8'
     datas = json.loads(web_data.text[9:-1])
-    select_data = list()
-    result_data = list()
     try:
         for day in pandas.date_range(startDay,endDay):
             day = day.strftime('%Y-%m-%d') 
