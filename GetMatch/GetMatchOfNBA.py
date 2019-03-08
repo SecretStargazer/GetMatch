@@ -2,6 +2,7 @@ import requests
 import pandas
 import datetime
 import json
+import PrintResult
  
 def getMatch(startDay=datetime.datetime.now().strftime("%Y-%m-%d"),endDay=datetime.datetime.now().strftime("%Y-%m-%d")):
     select_data = list()
@@ -43,3 +44,7 @@ def getPeriod(matchPeriod):
     elif matchPeriod == '2':
         period = "已结束"
     return period
+
+if __name__ == "__main__":
+    result_data = getMatch()
+    PrintResult.printMatch(result_data)

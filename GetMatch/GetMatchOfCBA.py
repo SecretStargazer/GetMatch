@@ -2,7 +2,8 @@ import requests
 import pandas
 import datetime
 import json
- 
+import PrintResult
+
 def getNow():
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"
@@ -49,3 +50,7 @@ def getMatch(round=getRoundNow(), seasonId=getSeasonIdNow()):
         quartertime = one['quarterTime']
         result_data.append([awayName , awayGoal , homeName, homeGoal, period ,quarter, quartertime, startTime])
     return result_data
+
+if __name__ == "__main__":
+    result_data = getMatch()
+    PrintResult.printMatch(result_data)
