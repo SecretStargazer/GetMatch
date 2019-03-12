@@ -25,6 +25,6 @@ def printRankingOfNBA(result_data,areaName):
         points = area_data[teamNum]['points']
         lossPoints = area_data[teamNum]['lossPoints']
         pointsDifference = area_data[teamNum]['pointsDifference']
-        pt.add_row([serial,teamName,wins,losses,games_back,wining_percentage,homeWins + '-' + homeLosses,awayWins + '-' + awayLosses,points,lossPoints,pointsDifference])
+        pt.add_row([serial,teamName,wins,losses,games_back,wining_percentage + '%',homeWins + '-' + homeLosses,awayWins + '-' + awayLosses,points,lossPoints,pointsDifference])
     print(pt)
     pass
