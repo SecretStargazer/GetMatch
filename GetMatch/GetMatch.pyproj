@@ -28,6 +28,9 @@
     <Compile Include="GetMatchOfNBA.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GetRegularSeasonDataOfNBA.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PrintResult.py">
       <SubType>Code</SubType>
     </Compile>
