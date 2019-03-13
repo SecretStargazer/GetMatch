@@ -67,9 +67,13 @@ if __name__ == "__main__":
     太平洋赛区：pacific\n\
     西南赛区：westsouth\n\
     \n\
+    输入其它文字退出\
+    \n\
     输入区域："
-    area = input(text)
-    try:
-        PrintResult.printRankingOfNBA(rd,area)
-    except:
-        print('输入错误')
+    while True:
+        area = input(text)
+        try:
+            PrintResult.printRankingOfNBA(rd,area)
+        except:
+            print('输入非指定代号，退出本功能')
+            break
