@@ -44,7 +44,3 @@ def getPeriod(matchPeriod):
     elif matchPeriod == '2':
         period = "已结束"
     return period
-
-if __name__ == "__main__":
-    result_data = getMatch()
-    PrintResult.printMatch(result_data)

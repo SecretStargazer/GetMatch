@@ -1,9 +1,4 @@
-import GetMatchOfNBA
-import GetMatchOfCBA
-import PrintResult
+import test_NBA
 
-
-nbaResult = GetMatchOfNBA.getMatch()
-PrintResult.printMatch(nbaResult)
-cbaResult = GetMatchOfCBA.getMatch()
-PrintResult.printMatch(cbaResult)
+test_NBA.test_1()
+test_NBA.test_2()
