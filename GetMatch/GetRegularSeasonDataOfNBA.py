@@ -15,7 +15,8 @@ def getRegularSeasonData():
     web_data = requests.get(url, headers=header)
     web_data.encoding = 'utf-8'
     startPos = web_data.text.index('{')
-    datas = json.loads(web_data.text[startPos:-6])
+    endPos = web_data.text.rindex('}') + 1
+    datas = json.loads(web_data.text[startPos:endPos])
     try:
         area_data += datas
     except:
