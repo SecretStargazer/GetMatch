@@ -11,7 +11,9 @@ def getNow():
     url = "https://ziliaoku.sports.qq.com/cube/index?cubeId=43&dimId=152&params=&from=sportsdatabase&callback=reqwest_1551862436256"  
     web_data = requests.get(url, headers=header)
     web_data.encoding = 'utf-8'
-    datas = json.loads(web_data.text[22:-1])
+    startPos = web_data.text.index('{')
+    endPos = web_data.text.rindex('}') + 1
+    datas = json.loads(web_data.text[startPos:endPos])
     select_data = list()
     round = ''
     seasonId = ''
