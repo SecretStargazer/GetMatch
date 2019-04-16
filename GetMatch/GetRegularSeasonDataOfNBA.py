@@ -14,7 +14,8 @@ def getRegularSeasonData():
     url = "https://matchweb.sports.qq.com/rank/team?from=sporthp&callback=jQuery112002240396961222011_1552286565426&competitionId=100000&from=NBA_PC&_=1552286565427"  
     web_data = requests.get(url, headers=header)
     web_data.encoding = 'utf-8'
-    datas = json.loads(web_data.text[45:-6])
+    startPos = web_data.text.index('{')
+    datas = json.loads(web_data.text[startPos:-6])
     try:
         area_data += datas
     except:

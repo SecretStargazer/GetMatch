@@ -13,7 +13,8 @@ def getMatch(startDay=datetime.datetime.now().strftime("%Y-%m-%d"),endDay=dateti
     url = "http://matchweb.sports.qq.com/kbs/list?from=NBA_PC&columnId=100000&startTime={0}&endTime={1}&callback=ajaxExec&_=1642571643524".format(startDay  , endDay)    
     web_data = requests.get(url, headers=header)
     web_data.encoding = 'utf-8'
-    datas = json.loads(web_data.text[9:-1])
+    startPos = web_data.text.index('{')
+    datas = json.loads(web_data.text[startPos:-1])
     try:
         for day in pandas.date_range(startDay,endDay):
             day = day.strftime('%Y-%m-%d') 
