@@ -28,25 +28,7 @@ def getRegularSeasonData():
         try:
             teamNum = 0
             for one in select_data:
-                result_data[areaName][teamNum] = dict()
-                result_data[areaName][teamNum]['teamName'] = one['teamName'] 
-                result_data[areaName][teamNum]['wins'] = one['wins']
-                result_data[areaName][teamNum]['losses'] = one['losses']
-                result_data[areaName][teamNum]['serial'] = one['serial']
-                result_data[areaName][teamNum]['games-back'] = one['games-back']
-                result_data[areaName][teamNum]['homeWins'] = one['homeWins']
-                result_data[areaName][teamNum]['homeLosses'] = one['homeLosses']
-                result_data[areaName][teamNum]['awayWins'] = one['awayWins']
-                result_data[areaName][teamNum]['awayLosses'] = one['awayLosses']
-                result_data[areaName][teamNum]['conferenceWins'] = one['conferenceWins']
-                result_data[areaName][teamNum]['conferenceLosses'] = one['conferenceLosses']
-                result_data[areaName][teamNum]['divisionWins'] = one['divisionWins']
-                result_data[areaName][teamNum]['divisionLosses'] = one['divisionLosses']
-                result_data[areaName][teamNum]['points'] = one['points']
-                result_data[areaName][teamNum]['lossPoints'] = one['lossPoints']
-                result_data[areaName][teamNum]['pointsDifference'] = one['pointsDifference']
-                result_data[areaName][teamNum]['wining-percentage'] = one['wining-percentage']
-                result_data[areaName][teamNum]['streak'] = one['streak']
+                result_data[areaName][teamNum] = one
                 teamNum += 1
         except:
             result_data.pop(areaName)  #删除无用字典
